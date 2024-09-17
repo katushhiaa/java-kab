@@ -1,1 +1,1 @@
-# java-kab
+# java-labs

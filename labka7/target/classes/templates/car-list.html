@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Список машин</title>
+</head>
+<body>
+<h1>Список машин</h1>
+<table>
+  <thead>
+  <tr>
+    <th>Марка</th>
+    <th>Модель</th>
+    <th>Рік</th>
+    <th>Тип бензину</th>
+    <th>Тип кузову</th>
+    <th>Колір</th>
+    <th>Номерний знак</th>
+    <th>Пасажиромісткість</th>
+    <th>Навантаженість</th>
+    <th>Виконати дії: </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="car : ${cars}">
+    <td th:text="${car.marka}"></td>
+    <td th:text="${car.model}"></td>
+    <td th:text="${car.year}"></td>
+    <td th:text="${car.fuelType}"></td>
+    <td th:text="${car.bodyType}"></td>
+    <td th:text="${car.color}"></td>
+    <td th:text="${car.licensePlate}"></td>
+    <td th:text="${car.passengerCapacity}"></td>
+    <td th:text="${car.loadCapacity}"></td>
+    <td>
+      <form th:action="@{/update-car}" method="post">
+        <input type="hidden" name="id" th:value="${car.id}">
+        <input type="text" name="color" placeholder="New Color" required>
+        <button type="submit">Update Color</button>
+      </form>
+      <form th:action="@{/delete-car}" method="post">
+        <input type="hidden" name="id" th:value="${car.id}">
+        <button type="submit">Delete</button>
+      </form>
+    </td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>

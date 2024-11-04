@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Додати нове замовлення</title>
+</head>
+<body>
+<h1>Додати нове замовлення</h1>
+
+<form th:action="@{/add-order}" method="post">
+    <label>Відстань:
+        <input type="number" step="0.01" name="distance" required>
+    </label>
+    <br>
+    <label>Машина:
+        <select name="carId" required>
+            <option th:each="car : ${cars}" th:value="${car.id}" th:text="${car.marka} + ' ' + ${car.model}"></option>
+        </select>
+    </label>
+    <br>
+    <label>Клієнт:
+        <select name="clientId" required>
+            <option th:each="client : ${clients}" th:value="${client.id}" th:text="${client.fullName}"></option>
+        </select>
+    </label>
+    <br>
+    <button type="submit">Додати замовлення</button>
+</form>
+
+<a href="/orders">Повернутися до списку замовлень</a>
+</body>
+</html>

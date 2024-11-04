@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Головна сторінка</title>
+</head>
+<body>
+
+<h1>Головна сторінка</h1>
+
+<form th:action="@{/cars}" method="get">
+  <button type="submit">Перейти до машин</button>
+</form>
+
+<form th:action="@{/orders}" method="get">
+  <button type="submit">Перейти до замовлень</button>
+</form>
+
+</body>
+</html>

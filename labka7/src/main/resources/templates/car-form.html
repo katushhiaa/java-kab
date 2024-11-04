@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Додати машину</title>
+</head>
+<body>
+<h1>Додати машину</h1>
+<form th:action="@{/add-car}" th:object="${car}" method="post">
+    <label>Марка:</label>
+    <input type="text" th:field="*{marka}" required><br>
+
+    <label>Модель:</label>
+    <input type="text" th:field="*{model}" required><br>
+
+    <label>Рік:</label>
+    <input type="number" th:field="*{year}" required><br>
+
+    <label>Тип бензину:</label>
+    <input type="text" th:field="*{fuelType}" required><br>
+
+    <label>Типу кузову:</label>
+    <input type="text" th:field="*{bodyType}" required><br>
+
+    <label>Колір:</label>
+    <input type="text" th:field="*{color}" required><br>
+
+    <label>Номерний знак:</label>
+    <input type="text" th:field="*{licensePlate}" required><br>
+
+    <label>Пасажиромісткість:</label>
+    <input type="number" th:field="*{passengerCapacity}" required><br>
+
+    <label>навантаженість:</label>
+    <input type="number" step="0.01" th:field="*{loadCapacity}" required><br>
+
+    <button type="submit">Зберегти</button>
+</form>
+</body>
+</html>

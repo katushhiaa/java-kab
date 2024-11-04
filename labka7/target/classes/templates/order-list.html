@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Список замовлень</title>
+</head>
+<body>
+<h1>Список замовлень</h1>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Відстань</th>
+        <th>Машина</th>
+        <th>Клієнт</th>
+        <th>Дії</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="order : ${orders}">
+        <td th:text="${order.id}"></td>
+        <td th:text="${order.distance}"></td>
+        <td th:text="${order.car.marka} + ' ' + ${order.car.model}"></td>
+        <td th:text="${order.client.fullName}"></td>
+        <td>
+            <a th:href="@{/edit-order/{id}(id=${order.id})}">Редагувати</a>
+            <form th:action="@{/delete-order/{id}(id=${order.id})}" method="post" style="display:inline;">
+                <button type="submit">Видалити</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<a href="/add-order">Додати нове замовлення</a>
+</body>
+</html>

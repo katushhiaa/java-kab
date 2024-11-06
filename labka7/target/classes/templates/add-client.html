@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Додати нового клієнта</title>
+</head>
+<body>
+<h1>Додати нового клієнта</h1>
+
+<form th:action="@{/add-client}" method="post">
+  <label>Ім'я:
+    <input type="text" name="fullName" required>
+  </label>
+  <br>
+  <label>Дата народження:
+    <input type="date" name="dateOfBirth" required>
+  </label>
+  <br>
+  <label>Номер телефону:
+    <input type="text" name="phoneNumber" required>
+  </label>
+  <br>
+  <button type="submit">Додати клієнта</button>
+</form>
+
+<a href="/clients">Повернутися до списку клієнтів</a>
+</body>
+</html>

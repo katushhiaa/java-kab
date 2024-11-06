@@ -10,9 +10,4 @@ public class MainController {
     public String showHomePage() {
         return "main";
     }
-
-    @GetMapping("/orders")
-    public String showOrdersPage() {
-        return "order-list";
-    }
 }

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Список клієнтів</title>
+</head>
+<body>
+<h1>Список клієнтів</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Ім'я</th>
+        <th>Дата народження</th>
+        <th>Номер телефону</th>
+        <th>Виконати дії</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="client : ${clients}">
+        <td th:text="${client.fullName}"></td>
+        <td th:text="${client.dateOfBirth}"></td>
+        <td th:text="${client.phoneNumber}"></td>
+        <td>
+
+            <form th:action="@{/update-client-phone}" method="post">
+                <input type="hidden" name="id" th:value="${client.id}">
+                <input type="text" name="phoneNumber" placeholder="New Phone Number" required>
+                <button type="submit">Update Phone</button>
+            </form>
+
+            <form th:action="@{/delete-client}" method="post">
+                <input type="hidden" name="id" th:value="${client.id}">
+                <button type="submit">Delete</button>
+            </form>
+
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
